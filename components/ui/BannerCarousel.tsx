@@ -43,10 +43,14 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     action,
   } = image;
 
-  const { opacity } = useUI()
+  const { opacity } = useUI();
 
   return (
-    <div class={`${opacity.value ? "opacity-0" : "opacity-1"} transition-all duration-500  relative h-[600px] min-w-[100vw] overflow-y-hidden`}>
+    <div
+      class={`${
+        opacity.value ? "opacity-0" : "opacity-1"
+      } transition-all duration-500  relative h-[600px] min-w-[100vw] overflow-y-hidden`}
+    >
       <a href={action?.href ?? "#"}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -98,7 +102,6 @@ function Dots({ images, interval = 0 }: Props) {
               class="h-full rounded focus:outline-none group"
             >
               <div
-                
                 style={{
                   background:
                     "linear-gradient(to right, #FFFFFF var(--dot-progress), rgba(255, 255, 255, 0.4) var(--dot-progress))",
@@ -150,7 +153,7 @@ function Controls() {
 }
 
 function BannerCarousel({ images, preload, interval }: Props) {
-  const { currentImage, opacity } = useUI()
+  const { currentImage, opacity } = useUI();
 
   return (
     <div class="relative">
@@ -160,7 +163,10 @@ function BannerCarousel({ images, preload, interval }: Props) {
           variant="banner"
           data-slide="prev"
           aria-label="Previous item"
-          onClick={() => currentImage.value === 0 ? currentImage.value = (images ? images.length - 1 : 0) : currentImage.value--}
+          onClick={() =>
+            currentImage.value === 0
+              ? currentImage.value = images ? images.length - 1 : 0
+              : currentImage.value--}
         >
           <Icon
             class="text-white font-thin"
@@ -170,14 +176,22 @@ function BannerCarousel({ images, preload, interval }: Props) {
           />
         </Button>
       </div>
-        {images && <BannerItem image={images[currentImage.value]} />}
+      {images && <BannerItem image={images[currentImage.value]} />}
       <div class="absolute right-0 top-[50%] flex items-center justify-center z-10 col-start-3 row-start-2">
         <Button
           class="h-12 w-12 bg-black opacity-50 rounded-full"
           variant="banner"
           data-slide="next"
           aria-label="Next item"
-          onClick={() => {opacity.value = true;  setTimeout(() => {currentImage.value + 1 === images?.length ? currentImage.value = 0 : currentImage.value++; opacity.value = false}, 500)}}
+          onClick={() => {
+            opacity.value = true;
+            setTimeout(() => {
+              currentImage.value + 1 === images?.length
+                ? currentImage.value = 0
+                : currentImage.value++;
+              opacity.value = false;
+            }, 500);
+          }}
         >
           <Icon
             class="text-white font-thin"

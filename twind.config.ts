@@ -111,12 +111,12 @@ const options: Omit<Options, "selfURL"> = {
         },
         "fadeIn": {
           from: { opacity: 0 },
-          to: { opacity: 1 }
+          to: { opacity: 1 },
         },
         "fadeout": {
           from: { opacity: 1 },
-          to: { opacity: 0 }
-        }
+          to: { opacity: 0 },
+        },
       },
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",

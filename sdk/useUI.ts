@@ -10,8 +10,8 @@ const displayMenu = signal(false);
 const displaySearchbar = signal(false);
 const displayUserModal = signal(false);
 const gender = signal("Masculino");
-const currentImage = signal(0)
-const opacity = signal(false)
+const currentImage = signal(0);
+const opacity = signal(false);
 
 const state = {
   displayCart,
@@ -20,7 +20,7 @@ const state = {
   displayUserModal,
   gender,
   currentImage,
-  opacity
+  opacity,
 };
 
 export const useUI = () => state;
