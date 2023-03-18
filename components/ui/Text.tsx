@@ -31,7 +31,7 @@ const Text = forwardRef<HTMLSpanElement, Props>((
   return (
     <span
       {...props}
-      class={`font-${variant} text-${variant} text-${tone} ${_class}`}
+      class={`font-${variant} text-${variant} ${_class}`}
       ref={ref}
     />
   );
