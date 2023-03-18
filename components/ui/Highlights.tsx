@@ -2,53 +2,116 @@ import Image from "deco-sites/std/components/Image.tsx";
 import Container from "$store/components/ui/Container.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Button from "$store/components/ui/Button.tsx";
+import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import { useId } from "preact/hooks";
+import { useUI } from "$store/sdk/useUI.ts";
+
+import Icon from "$store/components/ui/Icon.tsx";
+
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import ChangeGender from "../product/ChangeGender.tsx";
 
 export interface Highlight {
-    src: LiveImage;
-    alt: string;
-    href: string;
-    label: string;
+  src: LiveImage;
+  alt: string;
+  href: string;
+  label: string;
 }
 
 export interface Props {
-    highlights?: Highlight[];
-    title: string;
-    boldTitle?: string;
+  highlights?: Highlight[];
+  highlightsFeminino?: Highlight[];
+  title: string;
+  /**
+   * @title Texto em destaque
+   */
+  text?: string;
 }
 
-function Highlights({ highlights = [], title, boldTitle }: Props) {
-    const id = useId();
-    return (
-        <Container id={id} class="grid grid-cols-1 grid-rows-[48px_1fr] py-10 ">
-            <h2 class="text-center row-start-1 col-span-full">
-                <Text variant="heading-2" class="text-uppercase">{title} <strong>{boldTitle}</strong></Text>
-            </h2>
+function Highlights(
+  { highlights = [], highlightsFeminino = [], title, text }: Props,
+) {
+  const id = useId() + useId();
 
-            <Slider
-                class="gap-6 overflow-x-hidden overflow-y-hidden col-span-full row-start-2 row-end-5"
-                snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
-            >
-                {highlights.map(({ href, src, alt, label }) => (
-                        <a
-                            href={href}
-                            className="flex flex-col gap-4 items-center min-w-[190px]"
-                        >
-                            <Image
-                                class="rounded-full"
-                                src={src}
-                                alt={alt}
-                                width={190}
-                                height={190}
-                            />
-                            <Text variant="body">{label}</Text>
-                        </a>
-                ))}
-            </Slider>
+  const { gender } = useUI();
 
-        </Container>
-    );
+  return (
+    <Container
+      id={id}
+      class="flex flex-col pt-10 w-full pb-8 gap-5 items-center"
+    >
+      <div class="flex flex-col gap-10">
+        <h2 class="text-center">
+          <Text variant="heading-2">
+            {title} <span class="font-extrabold">{text}</span>
+          </Text>
+        </h2>
+        <ChangeGender />
+      </div>
+      <div class="flex relative items-center w-full">
+        <div class="absolute left-0 bg-interactive-inverse ">
+          <Button variant="icon" data-slide="prev" aria-label="Previous item">
+            <Icon
+              class="font-thin text-gray-polo opacity-30"
+              size={24}
+              id="ChevronLeft"
+              strokeWidth={3}
+            />
+          </Button>
+        </div>
+
+        <Slider
+          class="flex-grow gap-[60px] px-[60px] col-span-full row-start-2 row-end-5 scrollbar-none"
+          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+        >
+          {gender.value === "Masculino"
+            ? highlights.map(({ href, src, alt, label }) => (
+              <a
+                href={href}
+                class="flex flex-col gap-4 items-center min-w-[250px]"
+              >
+                <Image
+                  class="rounded-full"
+                  src={src}
+                  alt={alt}
+                  width={250}
+                  height={250}
+                />
+                <Text class="uppercase text-base font-medium">{label}</Text>
+              </a>
+            ))
+            : highlightsFeminino.map(({ href, src, alt, label }) => (
+              <a
+                href={href}
+                class="flex flex-col gap-4 items-center min-w-[250px]"
+              >
+                <Image
+                  class="rounded-full"
+                  src={src}
+                  alt={alt}
+                  width={250}
+                  height={250}
+                />
+                <Text class="uppercase text-base font-medium">{label}</Text>
+              </a>
+            ))}
+        </Slider>
+        <div class="absolute right-[-10px] bg-interactive-inverse">
+          <Button variant="icon" data-slide="next" aria-label="Next item">
+            <Icon
+              class="font-thin text-gray-polo opacity-30"
+              size={24}
+              id="ChevronRight"
+              strokeWidth={3}
+            />
+          </Button>
+        </div>
+      </div>
+
+      <SliderControllerJS rootId={id} />
+    </Container>
+  );
 }
 
 export default Highlights;
