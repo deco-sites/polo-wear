@@ -13,10 +13,10 @@ function OffersGallery({
 }: Props) {
   return (
     <Container>
-      <div class="flex flex-wrap-reverse basis-gallery">
+      <div class="flex flex-wrap-reverse justify-between basis-gallery">
         {images.map((image) => (
           <Image
-            class="flex-1 max-h-[300px]"
+            class="flex-1 max-h-[300px] sm:max-w-[400px]"
             src={image}
             width={200}
             height={200}
