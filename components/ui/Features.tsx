@@ -11,40 +11,22 @@ export interface Feature {
    * @description Title
    */
   title: string;
-  /**
-   * @description Description and Image alt text
-   */
-  description: string;
 }
 
 export interface Props {
   features: Feature[];
 }
 
-function FeatureHighlights(
-  { features }: Props,
-) {
+function FeatureHighlights({ features }: Props) {
   return (
-    <Container class="min-h-[280px] p-6 sm:px-0 sm:py-10">
-      <div class="border-default border-1">
-        <div class="flex flex-col justify-evenly sm:flex-row divide-y-1 sm:divide-y-0 sm:divide-x-1 divide-default mx-6 sm:mx-0 sm:my-10">
-          {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row sm:flex-col gap-4 py-6 sm:py-0 sm:px-10">
-              <Icon
-                id={id}
-                width={40}
-                height={40}
-                strokeWidth={2}
-              />
-              <div class="flex flex-col gap-2">
-                <Text variant="heading-3">{title}</Text>
-                <Text tone="subdued" variant="caption">
-                  {description}
-                </Text>
-              </div>
-            </div>
-          ))}
-        </div>
+    <Container class="p-6 sm:px-0 sm:py-10 bg-gray-100">
+      <div class="flex flex-row justify-between items-center gap-6 md:p-4">
+        {features.map(({ icon: id = "Truck", title }) => (
+          <div class="flex flex-col items-center">
+            <Icon id={id} width={30} height={30} strokeWidth={2} />
+            <Text variant="heading-4" class="text-center text-uppercase font-bold mt-2 leading-3" >{title}</Text>
+          </div>
+        ))}
       </div>
     </Container>
   );
