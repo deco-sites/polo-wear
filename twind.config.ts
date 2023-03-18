@@ -31,7 +31,6 @@ const gridRows = ([arg]: string[]) => {
 };
 
 const options: Omit<Options, "selfURL"> = {
-  
   theme: {
     extend: {
       colors: {
@@ -44,7 +43,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
-        "black-button": "#2E2E2E"
+        "black-button": "#2E2E2E",
       },
       textColor: {
         "default": "#161616",
@@ -137,7 +136,7 @@ const options: Omit<Options, "selfURL"> = {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
-      backgroundColor: "#F7F7F7"
+      backgroundColor: "#F7F7F7",
     },
     'section[data-manifest-key="./sections/Footer.tsx"]': {
       marginTop: "auto",

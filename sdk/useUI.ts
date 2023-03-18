@@ -16,7 +16,7 @@ const state = {
   displayMenu,
   displaySearchbar,
   displayUserModal,
-  gender
+  gender,
 };
 
 export const useUI = () => state;
