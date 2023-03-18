@@ -38,10 +38,10 @@ function Highlights({ highlights = [], highlightsFeminino = [], title, text }: P
   console.log(gender.value);
   
   return (
-    <Container id={id} class="flex flex-col pt-10 pb-8 gap-5 items-center">
+    <Container id={id} class="flex flex-col pt-10 w-full pb-8 gap-5 items-center">
       <div class="flex flex-col gap-10">
         <h2 class="text-center">
-          <Text variant="heading-2">{title} {text}</Text>
+          <Text variant="heading-2">{title} <span class="font-extrabold">{text}</span></Text>
         </h2>
         <ChangeGender />
       </div>
