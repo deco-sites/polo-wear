@@ -9,14 +9,12 @@ export interface INavItem {
 }
 
 function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children} = item;
+  const { href, label, children } = item;
 
   return (
     <li class="group flex items-center">
       <a href={href} class="px-4 py-3">
-        <Text
-          class="group-hover:border-black text-white"
-        >
+        <Text class="group-hover:border-black text-white">
           {label}
         </Text>
       </a>
@@ -31,14 +29,14 @@ function NavItem({ item }: { item: INavItem }) {
               {children.map((node) => (
                 <li>
                   <a class="hover:underline" href={node.href}>
-                    <Text >{node.label}</Text>
+                    <Text>{node.label}</Text>
                   </a>
 
                   <ul class="flex flex-col gap-1 mt-4">
                     {node.children?.map((leaf) => (
                       <li>
                         <a class="hover:underline" href={leaf.href}>
-                          <Text >{leaf.label}</Text>
+                          <Text>{leaf.label}</Text>
                         </a>
                       </li>
                     ))}
