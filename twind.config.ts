@@ -55,6 +55,7 @@ const options: Omit<Options, "selfURL"> = {
         "positive": "#1A7346",
         "critical": "#B44125",
         common: "#32332A",
+        "gray-polo": "#676363",
       },
       borderColor: {
         "default": "#D4DBD7",

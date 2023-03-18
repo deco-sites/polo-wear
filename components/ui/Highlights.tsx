@@ -51,9 +51,14 @@ function Highlights(
         <ChangeGender />
       </div>
       <div class="flex relative items-center w-full">
-        <div class="absolute left-0 bg-interactive-inverse rounded-full border-default border">
+        <div class="absolute left-0 bg-interactive-inverse ">
           <Button variant="icon" data-slide="prev" aria-label="Previous item">
-            <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+            <Icon
+              class="font-thin text-gray-polo opacity-30"
+              size={24}
+              id="ChevronLeft"
+              strokeWidth={3}
+            />
           </Button>
         </div>
 
@@ -93,9 +98,14 @@ function Highlights(
               </a>
             ))}
         </Slider>
-        <div class="absolute right-[-10px] bg-interactive-inverse rounded-full border-default border">
+        <div class="absolute right-[-10px] bg-interactive-inverse">
           <Button variant="icon" data-slide="next" aria-label="Next item">
-            <Icon size={20} id="ChevronRight" strokeWidth={3} />
+            <Icon
+              class="font-thin text-gray-polo opacity-30"
+              size={24}
+              id="ChevronRight"
+              strokeWidth={3}
+            />
           </Button>
         </div>
       </div>
