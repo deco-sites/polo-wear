@@ -43,7 +43,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
-        "black-button": "#2E2E2E",
+        "black-button": "#1b1b1b",
       },
       textColor: {
         "default": "#161616",
