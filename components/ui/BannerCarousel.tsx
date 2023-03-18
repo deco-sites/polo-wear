@@ -167,7 +167,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
             opacity.value = true;
             setTimeout(() => {
               currentImage.value === 0
-                ? currentImage.value = images ? images?.length - 1  : 0
+                ? currentImage.value = images ? images?.length - 1 : 0
                 : currentImage.value--;
               opacity.value = false;
             }, 500);
