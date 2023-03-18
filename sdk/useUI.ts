@@ -9,12 +9,14 @@ const displayCart = signal(false);
 const displayMenu = signal(false);
 const displaySearchbar = signal(false);
 const displayUserModal = signal(false);
+const gender = signal("Masculino");
 
 const state = {
   displayCart,
   displayMenu,
   displaySearchbar,
   displayUserModal,
+  gender
 };
 
 export const useUI = () => state;

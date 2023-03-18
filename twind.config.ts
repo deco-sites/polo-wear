@@ -31,6 +31,7 @@ const gridRows = ([arg]: string[]) => {
 };
 
 const options: Omit<Options, "selfURL"> = {
+  
   theme: {
     extend: {
       colors: {
@@ -135,6 +136,7 @@ const options: Omit<Options, "selfURL"> = {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
+      backgroundColor: "#F7F7F7"
     },
     'section[data-manifest-key="./sections/Footer.tsx"]': {
       marginTop: "auto",

@@ -14,8 +14,9 @@ import * as $$0 from "./islands/AddToCartButton.tsx";
 import * as $$1 from "./islands/HeaderButton.tsx";
 import * as $$2 from "./islands/HeaderModals.tsx";
 import * as $$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$4 from "./islands/SearchControls.tsx";
-import * as $$5 from "./islands/SliderJS.tsx";
+import * as $$4 from "./islands/Highlinghts.tsx";
+import * as $$5 from "./islands/SearchControls.tsx";
+import * as $$6 from "./islands/SliderJS.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/CookieConsent.tsx";
@@ -67,8 +68,9 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$1,
     "./islands/HeaderModals.tsx": $$2,
     "./islands/HeaderSearchMenu.tsx": $$3,
-    "./islands/SearchControls.tsx": $$4,
-    "./islands/SliderJS.tsx": $$5,
+    "./islands/Highlinghts.tsx": $$4,
+    "./islands/SearchControls.tsx": $$5,
+    "./islands/SliderJS.tsx": $$6,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -877,9 +879,49 @@ const manifest: DecoManifest = {
             },
             "title": "Highlights",
           },
+          "highlightsFeminino": {
+            "type": "array",
+            "items": {
+              "title": "Highlight",
+              "type": "object",
+              "properties": {
+                "src": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Src",
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alt",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+              },
+              "required": [
+                "src",
+                "alt",
+                "href",
+                "label",
+              ],
+            },
+            "title": "Highlights Feminino",
+          },
           "title": {
             "type": "string",
             "title": "Title",
+          },
+          "text": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Texto em destaque",
           },
         },
         "required": [
