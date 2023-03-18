@@ -16,12 +16,12 @@ interface Props {
 }
 
 function Modals({ menu, searchbar }: Props) {
-  const { displayCart, displayMenu, displaySearchbar } = useUI();
+  const { displayCart, displayMenu, displaySearchbar, displayUserModal } =
+    useUI();
 
   return (
     <>
       <Modal
-        title="Menu"
         mode="sidebar-left"
         loading="lazy"
         open={displayMenu.value}
@@ -35,11 +35,10 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
-        title="Buscar"
         mode="sidebar-right"
+        type="search"
         loading="lazy"
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 767px)")?.matches}
+        open={displaySearchbar.value}
         onClose={() => {
           displaySearchbar.value = false;
         }}
@@ -50,8 +49,20 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
+        mode="center"
+        type="user"
+        loading="lazy"
+        open={displayUserModal.value}
+        onClose={() => {
+          displayUserModal.value = false;
+        }}
+      >
+      </Modal>
+
+      <Modal
         title="Minha sacola"
         mode="sidebar-right"
+        type="cart"
         loading="lazy"
         open={displayCart.value}
         onClose={() => {

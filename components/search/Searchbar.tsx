@@ -26,11 +26,14 @@ function CloseButton() {
   const { displaySearchbar } = useUI();
 
   return (
-    <Button
-      variant="icon"
-      onClick={() => (displaySearchbar.value = false)}
-    >
-      <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+    <Button variant="icon" onClick={() => (displaySearchbar.value = false)}>
+      <Icon
+        class="border border-black border-2 rounded-full w-[40px] h-[40px]"
+        id="XMark"
+        width={20}
+        height={20}
+        strokeWidth={2}
+      />
     </Button>
   );
 }
@@ -71,19 +74,16 @@ export type Props = EditableProps & {
 
   /** used for autocomplete */
   configVTEX?: ClientConfigVTEX;
-
-  variant?: "desktop" | "mobile";
 };
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "O que você procura?",
   action = "/s",
   name = "q",
   query,
   products,
   suggestions: _suggestions,
   configVTEX,
-  variant = "mobile",
 }: Props) {
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -107,12 +107,12 @@ function Searchbar({
     : products;
 
   return (
-    <div class="flex flex-col p-4 md:(py-6 px-20)">
-      <div class="flex gap-4">
+    <div class="flex flex-col p-4">
+      <div class="flex items-center gap-4">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-default"
+          class="flex-grow flex gap-3 px-3 py-2 border-b-4 border-black"
         >
           <Button
             variant="icon"
@@ -160,7 +160,7 @@ function Searchbar({
             <Text variant="caption" tone="default">limpar</Text>
           </button>
         </form>
-        {variant === "desktop" && <CloseButton />}
+        <CloseButton />
       </div>
       <div class="flex flex-col gap-6 divide-y divide-default mt-6 empty:mt-0 md:(flex-row divide-y-0)">
         {searches && searches.length > 0 && !hasSuggestions && (

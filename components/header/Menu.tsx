@@ -14,7 +14,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 
   const title = (
     <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
+      class="flex-grow text-white min-h-[40px] flex items-center justify-center"
       variant={level === 0 ? "menu" : "caption"}
     >
       {item.label}
@@ -22,7 +22,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   );
 
   return (
-    <li>
+    <li class="relative">
       <div
         class={`flex justify-between items-center w-full py-2 ${
           level > 0 ? "pl-2" : ""
@@ -36,17 +36,17 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
           : <a class="w-full inline-block" href={item.href}>{title}</a>}
 
         {hasChildren && (
-          <Button variant="icon">
+          <Button class="absolute right-0" variant="icon">
             <Icon
-              class={open.value === true ? "hidden" : "block"}
-              id="Plus"
+              class={`text-white ${open.value === true ? "hidden" : "block"}`}
+              id="ChevronRight"
               height={20}
               width={20}
               strokeWidth={1.5}
             />
             <Icon
-              class={open.value === true ? "block" : "hidden"}
-              id="Minus"
+              class={`text-white ${open.value === true ? "block" : "hidden"}`}
+              id="ChevronDown"
               height={20}
               width={20}
               strokeWidth={1.5}
@@ -56,14 +56,9 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
       </div>
 
       {hasChildren && (
-        <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
-          <li>
-            <a href={item.href} class="w-full py-2 pl-2 inline-block">
-              <Text class="underline" variant="caption">
-                Ver todos
-              </Text>
-            </a>
-          </li>
+        <ul
+          class={`bg-black flex-col ${open.value === true ? "flex" : "hidden"}`}
+        >
           {item.children!.map((node) => (
             <MenuItem
               item={node}
@@ -79,47 +74,28 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 function Menu({ items }: Props) {
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
-        {items.map((item) => <MenuItem item={item} />)}
-      </ul>
-
-      <ul class="flex flex-col py-2 bg-hover">
+      <ul class="flex flex-col text-base py-2 bg-hover">
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
+            href="#"
           >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
+            <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+            <Text class="text-white ">Meus Pedidos</Text>
           </a>
         </li>
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
+            href="#"
           >
             <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
+            <Text class="text-white">Minha conta</Text>
           </a>
         </li>
+      </ul>
+      <ul class=" flex-grow flex flex-col divide-y divide-divider">
+        {items.map((item) => <MenuItem item={item} />)}
       </ul>
     </>
   );

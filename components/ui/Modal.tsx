@@ -17,13 +17,14 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
   mode?: "sidebar-right" | "sidebar-left" | "center";
+  type?: "menu" | "search" | "cart" | "user";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
 };
 
 const styles = {
-  "sidebar-right": "animate-slide-left sm:ml-auto",
-  "sidebar-left": "animate-slide-right",
+  "sidebar-right": "animate-slide-left sm:ml-auto backdrop",
+  "sidebar-left": "animate-slide-right backdrop",
   center: "",
 };
 
@@ -31,6 +32,7 @@ const Modal = ({
   open,
   title,
   mode = "sidebar-right",
+  type = "menu",
   onClose,
   children,
   loading,
@@ -60,25 +62,78 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop ${variant} ${
+      class={`bg-transparent left-auto right-0 p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full ${variant} ${
         props.class ?? ""
       }`}
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="pt-6 h-full bg-default flex flex-col">
-        <header class="flex px-4 justify-between items-center pb-6 border-b-1 border-default">
-          <h1>
-            <Text variant="heading-2">{title}</Text>
-          </h1>
-          <Button variant="icon" onClick={onClose}>
-            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-          </Button>
-        </header>
-        <div class="overflow-y-auto h-full flex flex-col">
-          {loading === "lazy" ? lazy.value && children : children}
-        </div>
-      </section>
+      {type === "menu" &&
+        (
+          <section class="pt-6 bg-menu-slider text-white h-full bg-default flex flex-col">
+            <header class="flex text-white px-4 justify-between items-center pb-6 ">
+              <div class="flex gap-5 items-center font-medium">
+                <span>&#8865;</span>
+                <div>
+                  <p>Olá, Bem-vindo(a)!</p>
+                  <p>
+                    <a>Entre</a> ou <a>Cadastre-se</a>
+                  </p>
+                </div>
+              </div>
+              <Button variant="icon" onClick={onClose}>
+                <Icon
+                  class="text-white"
+                  id="XMark"
+                  width={20}
+                  height={20}
+                  strokeWidth={2}
+                />
+              </Button>
+            </header>
+            <div class="overflow-y-auto h-full flex flex-col">
+              {loading === "lazy" ? lazy.value && children : children}
+            </div>
+          </section>
+        )}
+
+      {type === "search" &&
+        (
+          <section class="pt-6 relative text-white h-full bg-default flex flex-col">
+            <div class="overflow-y-auto h-full flex flex-col">
+              {loading === "lazy" ? lazy.value && children : children}
+            </div>
+          </section>
+        )}
+
+      {type === "cart" &&
+        (
+          <section class="pt-6 text-white h-full bg-default flex flex-col">
+            <header class="flex gap-4 text-white px-4 justify-between items-center pb-6 ">
+              <Button variant="icon" onClick={onClose}>
+                <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
+              </Button>
+              <p class="text-black uppercase tracking-widest text-[13px] text-common">
+                Voltar
+              </p>
+              <div class=" border-b-[0.5px] bg-black box-border w-full "></div>
+              <p class="text-black uppercase font-bold tracking-widest text-[13px]">
+                Carrinho
+              </p>
+            </header>
+            <div class="overflow-y-auto h-full flex flex-col">
+              {loading === "lazy" ? lazy.value && children : children}
+            </div>
+          </section>
+        )}
+
+      {type === "user" &&
+        (
+          <section class="absolute top-[100px] text-xs text-center right-[8%] py-5 px-14 text-black bg-white flex flex-col">
+            <p>Seja Bem Vindo(a)</p>
+            <a href="#" class="italic">Entrar</a>
+          </section>
+        )}
     </dialog>
   );
 };
