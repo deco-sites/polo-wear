@@ -53,7 +53,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
-        common: "#32332A"
+        common: "#32332A",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -62,7 +62,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
-        "divider": "#ffffff33"
+        "divider": "#ffffff33",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
