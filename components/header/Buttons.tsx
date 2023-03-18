@@ -14,13 +14,19 @@ function SearchButton() {
         displaySearchbar.value = !displaySearchbar.peek();
       }}
     >
-      <Icon id="MagnifyingGlass" width={20} height={20} strokeWidth={0.1} />
+      <Icon
+        class="text-white"
+        id="MagnifyingGlass"
+        width={20}
+        height={20}
+        strokeWidth={0.1}
+      />
     </Button>
   );
 }
 
 function MenuButton() {
-  const { displayMenu } = useUI();
+  const { displayMenu, displayUserModal } = useUI();
 
   return (
     <Button
@@ -30,7 +36,13 @@ function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon
+        class="text-white"
+        id="Bars3"
+        width={30}
+        height={30}
+        strokeWidth={0.01}
+      />
     </Button>
   );
 }
@@ -50,17 +62,39 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
-      {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
-          {totalItems}
-        </span>
-      )}
+      <Icon
+        class="text-white"
+        id="ShoppingCart"
+        width={20}
+        height={20}
+        strokeWidth={2}
+      />
+      <span class="absolute text-[9px] right-0 top-2 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        {totalItems ? totalItems : 0}
+      </span>
     </Button>
   );
 }
 
-function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
+function UserButton() {
+  const { displayUserModal } = useUI();
+
+  return (
+    <Button
+      variant="icon"
+      aria-label="open menu"
+      onClick={() => {
+        displayUserModal.value = true;
+      }}
+    >
+      <Icon class="text-white" id="User" width={20} height={20} />
+    </Button>
+  );
+}
+
+function HeaderButton(
+  { variant }: { variant: "cart" | "search" | "menu" | "user" },
+) {
   if (variant === "cart") {
     return <CartButton />;
   }
@@ -71,6 +105,9 @@ function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
 
   if (variant === "menu") {
     return <MenuButton />;
+  }
+  if (variant === "user") {
+    return <UserButton />;
   }
 
   return null;

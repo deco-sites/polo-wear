@@ -20,6 +20,7 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  const totalItems = cart.value?.items.length || null;
 
   if (cart.value === null) {
     return null;
@@ -28,15 +29,18 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <div class="flex flex-col justify-center items-center h-full gap-6">
-        <Text variant="heading-2">Sua sacola está vazia</Text>
+      <div class="flex pl-[24px] flex-col justify-start items-center h-full gap-6">
+        <Text class="text-base self-start">
+          Seu carrinho possui: {totalItems ? totalItems : 0}
+        </Text>
+        <Text class="text-lg font-medium">Carrinho vazio</Text>
         <Button
           variant="secondary"
           onClick={() => {
             displayCart.value = false;
           }}
         >
-          Escolher produtos
+          CONTINUAR COMPRANDO
         </Button>
       </div>
     );

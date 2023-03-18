@@ -1,6 +1,7 @@
 import HeaderButton from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
@@ -16,20 +17,26 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden flex flex-row justify-between items-center  w-full px-2 py-[16px] gap-2`}
       >
         <HeaderButton variant="menu" />
 
         <a
           href="/"
-          class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
+          class={`inline-flex items-center min-h-[${navbarHeight}]`}
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Image
+            src="https://polowearhomolog.vteximg.com.br/arquivos/logo_polowear_white.png?v=637687032701630000"
+            id="Logo"
+            width={210}
+            height={41.86}
+          />
         </a>
 
-        <div class="flex gap-1">
+        <div class="flex gap-[10px]">
           <HeaderButton variant="search" />
+          <HeaderButton variant="user" />
           <HeaderButton variant="cart" />
         </div>
       </div>
@@ -38,7 +45,12 @@ function Navbar({ items, searchbar }: {
       <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
+            <Image
+              src="https://polowearhomolog.vteximg.com.br/arquivos/logo_polowear_white.png?v=637687032701630000"
+              id="Logo"
+              width={210}
+              height={41.86}
+            />
           </a>
         </div>
         <div class="flex-auto flex justify-center">
@@ -46,15 +58,7 @@ function Navbar({ items, searchbar }: {
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
-          <Button
-            as="a"
-            variant="icon"
-            href="/login"
-            aria-label="Log in"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </Button>
+          <HeaderButton variant="user" />
           <HeaderButton variant="cart" />
         </div>
       </div>
