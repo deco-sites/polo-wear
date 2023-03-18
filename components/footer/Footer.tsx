@@ -4,7 +4,7 @@ import Container from "$store/components/ui/Container.tsx";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
-import {asset} from "$fresh/src/runtime/utils.ts";
+import { asset } from "$fresh/src/runtime/utils.ts";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -65,7 +65,6 @@ function Footer({ sections = [] }: Props) {
       <div>
         <Container class="w-full flex flex-col">
           <FooterContainer>
-
           </FooterContainer>
 
           <FooterContainer>
@@ -74,7 +73,11 @@ function Footer({ sections = [] }: Props) {
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" class="font-bold" tone="default-inverse">
+                    <Text
+                      variant="heading-3"
+                      class="font-bold"
+                      tone="default-inverse"
+                    >
                       {section.label}
                     </Text>
 
@@ -124,19 +127,20 @@ function Footer({ sections = [] }: Props) {
 
           <FooterContainer class="flex flex-col">
             <div class=" p-2 flex justify-center gap-4 border-t-2   border-gray-200">
-              <Icon id="Elo" width={30} height={30} strokeWidth={1}/>
-              <Icon id="Mastercard" width={30} height={30} strokeWidth={1}/>
-              <Icon id="Pix" width={30} height={30} strokeWidth={1}/>
-              <Icon id="Visa" width={30} height={30} strokeWidth={1}/>
+              <Icon id="Elo" width={30} height={30} strokeWidth={1} />
+              <Icon id="Mastercard" width={30} height={30} strokeWidth={1} />
+              <Icon id="Pix" width={30} height={30} strokeWidth={1} />
+              <Icon id="Visa" width={30} height={30} strokeWidth={1} />
             </div>
             <div class="flex justify-center border-b-2 p-2">
-              <Icon id="Facebook" width={30} height={30} strokeWidth={1}/>
-              <Icon id="Instagram" width={30} height={30} strokeWidth={1}/>
+              <Icon id="Facebook" width={30} height={30} strokeWidth={1} />
+              <Icon id="Instagram" width={30} height={30} strokeWidth={1} />
             </div>
             <div class="flex gap-4 mt-6">
-              <strong> Polo Wear Shop Center Leste Aricanduva </strong>
-              Avenida Aricanduva 5555 - Loja LUC Ancora N 25 - Jardim Santa Terezinha - São Paulo - SP - CEP: 03527-900
-              CNPJ: 23.803.373/0001-04
+              <strong>Polo Wear Shop Center Leste Aricanduva</strong>
+              Avenida Aricanduva 5555 - Loja LUC Ancora N 25 - Jardim Santa
+              Terezinha - São Paulo - SP - CEP: 03527-900 CNPJ:
+              23.803.373/0001-04
             </div>
           </FooterContainer>
         </Container>
