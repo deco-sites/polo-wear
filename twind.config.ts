@@ -154,6 +154,9 @@ const options: Omit<Options, "selfURL"> = {
         background: "rgba(0, 0, 0, 0.5)",
       },
     },
+    "basis-gallery": {
+      flex: "1 1 400px"
+    },
     "scroll-snap-center": {
       "scroll-snap-align": "center",
     },
