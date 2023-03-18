@@ -868,49 +868,16 @@ const manifest: DecoManifest = {
             },
             "title": "Highlights",
           },
-          "highlightsFeminino": {
-            "type": "array",
-            "items": {
-              "title": "Highlight",
-              "type": "object",
-              "properties": {
-                "src": {
-                  "format": "image-uri",
-                  "type": "string",
-                  "title": "Src",
-                },
-                "alt": {
-                  "type": "string",
-                  "title": "Alt",
-                },
-                "href": {
-                  "type": "string",
-                  "title": "Href",
-                },
-                "label": {
-                  "type": "string",
-                  "title": "Label",
-                },
-              },
-              "required": [
-                "src",
-                "alt",
-                "href",
-                "label",
-              ],
-            },
-            "title": "Highlights Feminino",
-          },
           "title": {
             "type": "string",
             "title": "Title",
           },
-          "text": {
+          "boldTitle": {
             "type": [
               "string",
               "null",
             ],
-            "title": "Texto em destaque",
+            "title": "Bold Title",
           },
         },
         "required": [
