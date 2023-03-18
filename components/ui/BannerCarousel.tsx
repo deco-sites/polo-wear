@@ -7,6 +7,7 @@ import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import { useId } from "preact/hooks";
 import { animation, keyframes, tw } from "twind/css";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { useUI } from "../../sdk/useUI.ts";
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -18,12 +19,6 @@ export interface Banner {
   action?: {
     /** @description when user clicks on the image, go to this link */
     href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
-    /** @description Button label */
-    label: string;
   };
 }
 
@@ -48,9 +43,11 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     action,
   } = image;
 
+  const { opacity } = useUI()
+
   return (
-    <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
-      <a href={action?.href ?? "#"} aria-label={action?.label}>
+    <div class={`${opacity.value ? "opacity-0" : "opacity-1"} transition-all duration-500  relative h-[600px] min-w-[100vw] overflow-y-hidden`}>
+      <a href={action?.href ?? "#"}>
         <Picture class="w-full" preload={lcp}>
           <Source
             media="(max-width: 767px)"
@@ -73,20 +70,6 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             alt={alt}
           />
         </Picture>
-        {action && (
-          <div
-            class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 bg-hover-inverse p-4 rounded"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <Text variant="heading-1" tone="default-inverse">
-              {action.title}
-            </Text>
-            <Text variant="heading-3" tone="default-inverse">
-              {action.subTitle}
-            </Text>
-            <Button variant="secondary">{action.label}</Button>
-          </div>
-        )}
       </a>
     </div>
   );
@@ -115,19 +98,7 @@ function Dots({ images, interval = 0 }: Props) {
               class="h-full rounded focus:outline-none group"
             >
               <div
-                class={tw`group-disabled:${
-                  animation(
-                    `${interval}s ease-out 1 forwards`,
-                    keyframes`
-                      from: {
-                        --dot-progress: 0%;
-                      }
-                      to {
-                        --dot-progress: 100%;
-                      }
-                    `,
-                  )
-                } w-16 sm:w-20 h-0.5`}
+                
                 style={{
                   background:
                     "linear-gradient(to right, #FFFFFF var(--dot-progress), rgba(255, 255, 255, 0.4) var(--dot-progress))",
@@ -179,24 +150,43 @@ function Controls() {
 }
 
 function BannerCarousel({ images, preload, interval }: Props) {
-  const id = useId();
+  const { currentImage, opacity } = useUI()
 
   return (
-    <div
-      id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
-    >
-      <Slider class="col-span-full row-span-full scrollbar-none gap-6">
-        {images?.map((image, index) => (
-          <BannerItem image={image} lcp={index === 0 && preload} />
-        ))}
-      </Slider>
-
-      <Controls />
-
-      <Dots images={images} interval={interval} />
-
-      <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
+    <div class="relative">
+      <div class="absolute left-0 top-[50%] flex items-center justify-center z-10 col-start-1 row-start-2">
+        <Button
+          class="h-12 w-12 bg-black opacity-50 rounded-full"
+          variant="banner"
+          data-slide="prev"
+          aria-label="Previous item"
+          onClick={() => currentImage.value === 0 ? currentImage.value = (images ? images.length - 1 : 0) : currentImage.value--}
+        >
+          <Icon
+            class="text-white font-thin"
+            size={20}
+            id="ChevronLeft"
+            strokeWidth={3}
+          />
+        </Button>
+      </div>
+        {images && <BannerItem image={images[currentImage.value]} />}
+      <div class="absolute right-0 top-[50%] flex items-center justify-center z-10 col-start-3 row-start-2">
+        <Button
+          class="h-12 w-12 bg-black opacity-50 rounded-full"
+          variant="banner"
+          data-slide="next"
+          aria-label="Next item"
+          onClick={() => {opacity.value = true;  setTimeout(() => {currentImage.value + 1 === images?.length ? currentImage.value = 0 : currentImage.value++; opacity.value = false}, 500)}}
+        >
+          <Icon
+            class="text-white font-thin"
+            size={20}
+            id="ChevronRight"
+            strokeWidth={3}
+          />
+        </Button>
+      </div>
     </div>
   );
 }

@@ -35,7 +35,6 @@ function Highlights(
   const id = useId() + useId();
 
   const { gender } = useUI();
-  console.log(gender.value);
 
   return (
     <Container

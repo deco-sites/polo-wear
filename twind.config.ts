@@ -109,6 +109,14 @@ const options: Omit<Options, "selfURL"> = {
           from: { transform: "translateY(100%)" },
           to: { transform: "translateY(0)" },
         },
+        "fadeIn": {
+          from: { opacity: 0 },
+          to: { opacity: 1 }
+        },
+        "fadeout": {
+          from: { opacity: 1 },
+          to: { opacity: 0 }
+        }
       },
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",
