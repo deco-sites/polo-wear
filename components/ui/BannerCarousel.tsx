@@ -163,10 +163,15 @@ function BannerCarousel({ images, preload, interval }: Props) {
           variant="banner"
           data-slide="prev"
           aria-label="Previous item"
-          onClick={() =>
-            currentImage.value === 0
-              ? currentImage.value = images ? images.length - 1 : 0
-              : currentImage.value--}
+          onClick={() => {
+            opacity.value = true;
+            setTimeout(() => {
+              currentImage.value === 0
+                ? currentImage.value = images ? images?.length - 1  : 0
+                : currentImage.value--;
+              opacity.value = false;
+            }, 500);
+          }}
         >
           <Icon
             class="text-white font-thin"
