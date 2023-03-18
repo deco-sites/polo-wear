@@ -36,7 +36,8 @@ const options: Omit<Options, "selfURL"> = {
       colors: {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
-        "badge": "#8C3D3D", // shopping cart tem isso tambem
+        "menu-slider": "#151515",
+        "badge": "#47494A", // shopping cart tem isso tambem
         "footer": "#003232",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
@@ -52,6 +53,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
+        common: "#32332A"
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -60,6 +62,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "divider": "#ffffff33"
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -111,7 +114,7 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
+      sans: ["Montserrat", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
