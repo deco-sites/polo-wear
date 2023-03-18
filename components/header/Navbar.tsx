@@ -1,15 +1,12 @@
 import HeaderButton from "$store/islands/HeaderButton.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 
-function Navbar({ items, searchbar }: {
+function Navbar({ items }: {
   items: INavItem[];
   searchbar: SearchbarProps;
 }) {
@@ -42,7 +39,7 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
+      <div class="hidden md:flex flex-row justify-between items-center w-full pl-2 pr-3">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
             <Image
@@ -53,14 +50,14 @@ function Navbar({ items, searchbar }: {
             />
           </a>
         </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <HeaderButton variant="search" />
           <HeaderButton variant="user" />
           <HeaderButton variant="cart" />
         </div>
+      </div>
+      <div class="hidden md:flex flex-auto text-white flex justify-center">
+        {items.map((item) => <NavItem item={item} />)}
       </div>
     </>
   );

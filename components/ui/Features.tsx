@@ -24,7 +24,12 @@ function FeatureHighlights({ features }: Props) {
         {features.map(({ icon: id = "Truck", title }) => (
           <div class="flex flex-col items-center">
             <Icon id={id} width={30} height={30} strokeWidth={2} />
-            <Text variant="heading-4" class="text-center text-uppercase font-bold mt-2 leading-3" >{title}</Text>
+            <Text
+              variant="heading-4"
+              class="text-center text-uppercase font-bold mt-2 leading-3"
+            >
+              {title}
+            </Text>
           </div>
         ))}
       </div>
