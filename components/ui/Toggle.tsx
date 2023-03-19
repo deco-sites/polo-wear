@@ -3,8 +3,7 @@ import { useAddToCart } from "$store/sdk/useAddToCart.ts";
 import { useUI } from "../../sdk/useUI.ts";
 
 function Toggle() {
-    
-  const { detailsToggle } = useUI()
+  const { detailsToggle } = useUI();
 
   return (
     <div class=" flex gap-[1px] w-full ">

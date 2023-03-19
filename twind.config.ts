@@ -47,7 +47,7 @@ const options: Omit<Options, "selfURL"> = {
         "gray-bg": "#F5F5F5",
         "green-button": "#10BC4B",
         "dk-green-button": "#42A644",
-        "common-black": "#32332A"
+        "common-black": "#32332A",
       },
       textColor: {
         "default": "#161616",
@@ -60,7 +60,7 @@ const options: Omit<Options, "selfURL"> = {
         "critical": "#B44125",
         common: "#32332A",
         "gray-polo": "#676363",
-        "label-text": "#989898"
+        "label-text": "#989898",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -71,7 +71,7 @@ const options: Omit<Options, "selfURL"> = {
         "critical": "#B44125",
         "divider": "#ffffff33",
         "price-box": "#EAEAEA",
-        "light-border": "#E0E0E0"
+        "light-border": "#E0E0E0",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
