@@ -234,6 +234,13 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Image",
           },
+          "text": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Text",
+          },
           "width": {
             "type": [
               "number",
