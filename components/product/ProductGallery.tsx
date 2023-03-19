@@ -20,12 +20,16 @@ function NotFound() {
 
 function Gallery({ page }: { page: ProductListingPage }) {
   return (
-    <div class="px-8 sm:py-10 mt-24 w-screen flex">
-      <div class="w-1/4 px-4">
+    <div class="px-8 sm:py-10 mt-24 w-screen flex ">
+      <div class="hidden w-1/4 px-4 md:block">
         <Filter />
       </div>
-      <div class="w-3/4">
-        <div class="flex justify-between">
+      <div class="w-screen md:w-3/4">
+        <div class="w-full p-2 bg-[#32332A] flex justify-between mb-4 md:hidden">
+          <h2 class="text-center text-[22px] text-white font-normal">Filtro</h2>
+          <Icon id="ChevronRight" width={28} height={28} strokeWidth={1} class="text-white" />
+        </div>
+        <div class="flex-col flex md:flex-row md:justify-between">
           <p>
             Produtos encontrados: <strong>57</strong>
           </p>
@@ -33,12 +37,20 @@ function Gallery({ page }: { page: ProductListingPage }) {
             <option value="Selecione" class="text-gray-800">Selecione</option>
             <option value="Selecione" class="text-gray-800">Menor Preço</option>
             <option value="Selecione" class="text-gray-800">Maior Preço</option>
-            <option value="Selecione" class="text-gray-800">Mais vendidos</option>
-            <option value="Selecione" class="text-gray-800">Melhores avaliações</option>
+            <option value="Selecione" class="text-gray-800">
+              Mais vendidos
+            </option>
+            <option value="Selecione" class="text-gray-800">
+              Melhores avaliações
+            </option>
             <option value="Selecione" class="text-gray-800">A - Z</option>
             <option value="Selecione" class="text-gray-800">Z - A</option>
-            <option value="Selecione" class="text-gray-800">Data de lançamento</option>
-            <option value="Selecione" class="text-gray-800">Melhor Desconto</option>
+            <option value="Selecione" class="text-gray-800">
+              Data de lançamento
+            </option>
+            <option value="Selecione" class="text-gray-800">
+              Melhor Desconto
+            </option>
           </select>
         </div>
         <div class=" relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
