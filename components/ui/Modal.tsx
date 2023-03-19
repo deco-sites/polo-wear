@@ -62,7 +62,7 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent left-auto right-0 p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full ${variant} ${
+      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full ${variant} ${
         props.class ?? ""
       }`}
       onClick={(e) =>
@@ -70,7 +70,7 @@ const Modal = ({
     >
       {type === "menu" &&
         (
-          <section class="pt-6 bg-menu-slider text-white h-full bg-default flex flex-col">
+          <section class="pt-6 bg-menu-slider text-white h-full flex flex-col">
             <header class="flex text-white px-4 justify-between items-center pb-6 ">
               <div class="flex gap-5 items-center font-medium">
                 <span>&#8865;</span>
@@ -129,7 +129,7 @@ const Modal = ({
 
       {type === "user" &&
         (
-          <section class="absolute top-[100px] text-xs text-center right-[8%] py-5 px-14 text-black bg-white flex flex-col">
+          <section class="fixed top-[100px] text-xs text-center right-[8%] py-5 px-14 text-black bg-white flex flex-col">
             <p>Seja Bem Vindo(a)</p>
             <a href="#" class="italic">Entrar</a>
           </section>

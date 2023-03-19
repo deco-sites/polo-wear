@@ -14,14 +14,18 @@ export type Props =
 
 const variants = {
   primary:
-    "h-[36px] px-3 rounded bg-black font-button text-button text-default-inverse border-transparent hover:bg-black hover:text-default hover:border-interactive active:bg-interactive active:text-default-inverse active:border-transparent disabled:border-default disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none ",
-  secondary: "h-[36px] px-3 bg-black font-button text-button border-default",
+    "h-[36px] px-3 rounded bg-black font-button border-transparent active:bg-interactive active:text-default-inverse active:border-transparent disabled:border-default disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none ",
+  secondary: "h-[36px] px-3 bg-black font-button text-button border-default ",
   tertiary:
     "h-[36px] px-3 rounded bg-interactive-inverse font-button text-button border-transparent hover:bg-hover active:border-interactive disabled:border-transparent disabled:text-subdued focus:outline-none",
   icon:
     "h-[36px] px-2 rounded-full bg-transparent text-default border-transparent hover:bg-hover active:border-interactive disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none",
+<<<<<<< HEAD
   "arrow":
     "border-none"
+=======
+  banner: "h-12 w-12 bg-black opacity-50 rounded-full border-0",
+>>>>>>> 254d52238aebe99bf2d150e8eb2adf865b3bd339
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(({

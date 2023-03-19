@@ -4,6 +4,7 @@ import Container from "$store/components/ui/Container.tsx";
 
 import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
+import { asset } from "$fresh/src/runtime/utils.ts";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -37,7 +38,7 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a href={item.href}>
+          <a class="text-black" href={item.href}>
             {item.label}
           </a>
         )}
@@ -51,7 +52,7 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+  return <div class={`py-2 px-4 sm:py-12 md:p-4 ${_class}`}>{children}</div>;
 }
 
 export interface Props {
@@ -60,20 +61,24 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="w-full bg-gray-100 flex flex-col">
       <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
+        <Container class="w-full flex flex-col">
           <FooterContainer>
             <Newsletter />
           </FooterContainer>
 
           <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row gap-20 justify-around">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="default-inverse">
+                    <Text
+                      variant="heading-3"
+                      class="font-bold"
+                      tone="default-inverse"
+                    >
                       {section.label}
                     </Text>
 
@@ -94,12 +99,12 @@ function Footer({ sections = [] }: Props) {
             </ul>
 
             {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+            <ul class="flex flex-col sm:hidden sm:flex-row gap-4 mt-4">
               {sections.map((section) => (
                 <li>
                   <Text variant="body" tone="default-inverse">
-                    <details>
-                      <summary>
+                    <details class="border-t-2 border-gray-200 p-4">
+                      <summary class="font-bold text-black text-uppercase cursor-pointer">
                         {section.label}
                       </summary>
 
@@ -120,60 +125,24 @@ function Footer({ sections = [] }: Props) {
               ))}
             </ul>
           </FooterContainer>
-        </Container>
-      </div>
 
-      <div>
-        <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
-            <Text
-              class="flex items-center gap-1"
-              variant="body"
-              tone="default-inverse"
-            >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </Text>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
+          <FooterContainer class="flex flex-col">
+            <div class=" p-2 flex justify-center gap-4 border-t-2   border-gray-200">
+              <Icon id="Elo" width={30} height={30} strokeWidth={1} />
+              <Icon id="Mastercard" width={30} height={30} strokeWidth={1} />
+              <Icon id="Pix" width={30} height={30} strokeWidth={1} />
+              <Icon id="Visa" width={30} height={30} strokeWidth={1} />
+            </div>
+            <div class="flex justify-center border-b-2 p-2">
+              <Icon id="Facebook" width={30} height={30} strokeWidth={1} />
+              <Icon id="Instagram" width={30} height={30} strokeWidth={1} />
+            </div>
+            <div class="flex gap-4 mt-6">
+              <strong>Polo Wear Shop Center Leste Aricanduva</strong>
+              Avenida Aricanduva 5555 - Loja LUC Ancora N 25 - Jardim Santa
+              Terezinha - São Paulo - SP - CEP: 03527-900 CNPJ:
+              23.803.373/0001-04
+            </div>
           </FooterContainer>
         </Container>
       </div>

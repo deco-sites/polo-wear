@@ -11,11 +11,13 @@ import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/api/[...catchall].tsx";
 import * as $4 from "./routes/index.tsx";
 import * as $$0 from "./islands/AddToCartButton.tsx";
-import * as $$1 from "./islands/HeaderButton.tsx";
-import * as $$2 from "./islands/HeaderModals.tsx";
-import * as $$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$4 from "./islands/SearchControls.tsx";
-import * as $$5 from "./islands/SliderJS.tsx";
+import * as $$1 from "./islands/BannerCarousel.tsx";
+import * as $$2 from "./islands/HeaderButton.tsx";
+import * as $$3 from "./islands/HeaderModals.tsx";
+import * as $$4 from "./islands/HeaderSearchMenu.tsx";
+import * as $$5 from "./islands/Highlinghts.tsx";
+import * as $$6 from "./islands/SearchControls.tsx";
+import * as $$7 from "./islands/SliderJS.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/CookieConsent.tsx";
@@ -24,17 +26,19 @@ import * as $$$4 from "./sections/Features.tsx";
 import * as $$$5 from "./sections/Footer.tsx";
 import * as $$$6 from "./sections/Header.tsx";
 import * as $$$7 from "./sections/Highlights.tsx";
-import * as $$$8 from "./sections/ProductDetails.tsx";
-import * as $$$9 from "./sections/ProductGallery.tsx";
-import * as $$$10 from "./sections/ProductShelf.tsx";
-import * as $$$11 from "./sections/SearchControls.tsx";
-import * as $$$12 from "./sections/WhatsApp.tsx";
-import * as $$$13 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$14 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$15 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$16 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$17 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$18 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$8 from "./sections/OffersGallery.tsx";
+import * as $$$9 from "./sections/PriceRange.tsx";
+import * as $$$10 from "./sections/ProductDetails.tsx";
+import * as $$$11 from "./sections/ProductGallery.tsx";
+import * as $$$12 from "./sections/ProductShelf.tsx";
+import * as $$$13 from "./sections/SearchControls.tsx";
+import * as $$$14 from "./sections/WhatsApp.tsx";
+import * as $$$15 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$16 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$17 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$18 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$19 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$20 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -64,11 +68,13 @@ const manifest: DecoManifest = {
   },
   islands: {
     "./islands/AddToCartButton.tsx": $$0,
-    "./islands/HeaderButton.tsx": $$1,
-    "./islands/HeaderModals.tsx": $$2,
-    "./islands/HeaderSearchMenu.tsx": $$3,
-    "./islands/SearchControls.tsx": $$4,
-    "./islands/SliderJS.tsx": $$5,
+    "./islands/BannerCarousel.tsx": $$1,
+    "./islands/HeaderButton.tsx": $$2,
+    "./islands/HeaderModals.tsx": $$3,
+    "./islands/HeaderSearchMenu.tsx": $$4,
+    "./islands/Highlinghts.tsx": $$5,
+    "./islands/SearchControls.tsx": $$6,
+    "./islands/SliderJS.tsx": $$7,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -79,17 +85,19 @@ const manifest: DecoManifest = {
     "./sections/Footer.tsx": $$$5,
     "./sections/Header.tsx": $$$6,
     "./sections/Highlights.tsx": $$$7,
-    "./sections/ProductDetails.tsx": $$$8,
-    "./sections/ProductGallery.tsx": $$$9,
-    "./sections/ProductShelf.tsx": $$$10,
-    "./sections/SearchControls.tsx": $$$11,
-    "./sections/WhatsApp.tsx": $$$12,
-    "deco-sites/std/sections/SEO.tsx": $$$13,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$14,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$15,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$16,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$17,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$18,
+    "./sections/OffersGallery.tsx": $$$8,
+    "./sections/PriceRange.tsx": $$$9,
+    "./sections/ProductDetails.tsx": $$$10,
+    "./sections/ProductGallery.tsx": $$$11,
+    "./sections/ProductShelf.tsx": $$$12,
+    "./sections/SearchControls.tsx": $$$13,
+    "./sections/WhatsApp.tsx": $$$14,
+    "deco-sites/std/sections/SEO.tsx": $$$15,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$16,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$17,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$18,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$19,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$20,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -248,24 +256,9 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "title": "Href",
                     },
-                    "title": {
-                      "type": "string",
-                      "title": "Title",
-                    },
-                    "subTitle": {
-                      "type": "string",
-                      "title": "Sub Title",
-                    },
-                    "label": {
-                      "type": "string",
-                      "title": "Label",
-                    },
                   },
                   "required": [
                     "href",
-                    "title",
-                    "subTitle",
-                    "label",
                   ],
                 },
               },
@@ -877,13 +870,126 @@ const manifest: DecoManifest = {
             },
             "title": "Highlights",
           },
+          "highlightsFeminino": {
+            "type": "array",
+            "items": {
+              "title": "Highlight",
+              "type": "object",
+              "properties": {
+                "src": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Src",
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alt",
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+              },
+              "required": [
+                "src",
+                "alt",
+                "href",
+                "label",
+              ],
+            },
+            "title": "Highlights Feminino",
+          },
           "title": {
             "type": "string",
             "title": "Title",
           },
+          "text": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Texto em destaque",
+          },
         },
         "required": [
           "title",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/OffersGallery.tsx": {
+      "inputSchema": {
+        "title": " Offers Gallery",
+        "type": "object",
+        "properties": {
+          "images": {
+            "type": "array",
+            "items": {
+              "format": "image-uri",
+              "type": "string",
+              "title": "LiveImage",
+            },
+            "title": "Images",
+          },
+        },
+        "required": [
+          "images",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/PriceRange.tsx": {
+      "inputSchema": {
+        "title": " Price Range",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "text": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Texto em destaque",
+          },
+          "itens": {
+            "type": "array",
+            "items": {
+              "title": "ProductRangeItem",
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Text",
+                },
+                "price": {
+                  "type": "string",
+                  "title": "Price",
+                },
+              },
+              "required": [
+                "image",
+                "text",
+                "price",
+              ],
+            },
+            "title": "Itens",
+          },
+        },
+        "required": [
+          "title",
+          "itens",
         ],
       },
       "outputSchema": null,

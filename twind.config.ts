@@ -43,6 +43,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        "black-button": "#1b1b1b",
       },
       textColor: {
         "default": "#161616",
@@ -54,6 +55,7 @@ const options: Omit<Options, "selfURL"> = {
         "positive": "#1A7346",
         "critical": "#B44125",
         common: "#32332A",
+        "gray-polo": "#676363",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -63,6 +65,7 @@ const options: Omit<Options, "selfURL"> = {
         "positive": "#1A7346",
         "critical": "#B44125",
         "divider": "#ffffff33",
+        "price-box": "#EAEAEA",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
@@ -107,6 +110,14 @@ const options: Omit<Options, "selfURL"> = {
           from: { transform: "translateY(100%)" },
           to: { transform: "translateY(0)" },
         },
+        "fadeIn": {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        "fadeout": {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
       },
       boxShadow: {
         sm: "0px 1px 3px 0px #00000014",
@@ -135,6 +146,7 @@ const options: Omit<Options, "selfURL"> = {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
+      backgroundColor: "#F7F7F7",
     },
     'section[data-manifest-key="./sections/Footer.tsx"]': {
       marginTop: "auto",
@@ -151,6 +163,9 @@ const options: Omit<Options, "selfURL"> = {
       "&::backdrop": {
         background: "rgba(0, 0, 0, 0.5)",
       },
+    },
+    "basis-gallery": {
+      flex: "1 1 400px",
     },
     "scroll-snap-center": {
       "scroll-snap-align": "center",

@@ -24,7 +24,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   return (
     <li class="relative">
       <div
-        class={`flex justify-between items-center w-full py-2 ${
+        class={`flex justify-between items-start w-full py-2 ${
           level > 0 ? "pl-2" : ""
         }`}
         onClick={() => {
