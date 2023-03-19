@@ -16,14 +16,14 @@ export interface Props {
   text?: string;
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
-  alternativeButton?: boolean
+  alternativeButton?: boolean;
 }
 
 function ProductShelf({
   title,
   text,
   products,
-  alternativeButton = false
+  alternativeButton = false,
 }: Props) {
   const id = useId();
 
@@ -46,7 +46,10 @@ function ProductShelf({
       >
         {products?.map((product) => (
           <div class="min-w-[158px]">
-            <ProductCard product={product} alternateButton={alternativeButton}/>
+            <ProductCard
+              product={product}
+              alternateButton={alternativeButton}
+            />
           </div>
         ))}
       </Slider>
