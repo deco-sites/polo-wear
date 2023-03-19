@@ -99,8 +99,8 @@ const Modal = ({
 
       {type === "search" &&
         (
-          <section class="pt-6 relative text-white h-full bg-default flex flex-col">
-            <div class="overflow-y-auto h-full flex flex-col">
+          <section class="relative h-full bg-default flex flex-col scrollbar-none">
+            <div class="overflow-y-auto h-full flex flex-col scrollbar-none">
               {loading === "lazy" ? lazy.value && children : children}
             </div>
           </section>
