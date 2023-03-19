@@ -27,7 +27,13 @@ function Gallery({ page }: { page: ProductListingPage }) {
       <div class="w-screen md:w-3/4">
         <div class="w-full p-2 bg-[#32332A] flex justify-between mb-4 md:hidden">
           <h2 class="text-center text-[22px] text-white font-normal">Filtro</h2>
-          <Icon id="ChevronRight" width={28} height={28} strokeWidth={1} class="text-white" />
+          <Icon
+            id="ChevronRight"
+            width={28}
+            height={28}
+            strokeWidth={1}
+            class="text-white"
+          />
         </div>
         <div class="flex-col flex md:flex-row md:justify-between">
           <p>

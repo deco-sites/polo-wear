@@ -25,7 +25,7 @@ function ProductShelf({
   products,
   alternativeButton = false,
 }: Props) {
-  const id = useId();
+  const id = useId() + Math.floor(Math.random() * 100);
 
   if (!products || products.length === 0) {
     return null;

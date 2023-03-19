@@ -35,7 +35,7 @@ function NavItem({ item }: { item: INavItem }) {
                   <ul class="flex flex-col gap-1 mt-4">
                     {node.children?.map((leaf) => (
                       <li>
-                        <a class="hover:underline" href={leaf.href}>
+                        <a class="hover:underline " href={leaf.href}>
                           <Text>{leaf.label}</Text>
                         </a>
                       </li>
