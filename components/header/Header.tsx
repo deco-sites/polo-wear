@@ -28,7 +28,8 @@ export interface NavItem {
 }
 
 export interface Props {
-  alerts?: LiveImage;
+  alertsDesktop?: LiveImage;
+  alertsMobile?: LiveImage;
   /** @title Search Bar */
   searchbar?: SearchbarProps;
   /**
@@ -56,7 +57,8 @@ export interface Props {
 
 function Header(
   {
-    alerts,
+    alertsDesktop,
+    alertsMobile,
     searchbar: _searchbar,
     products,
     navItems = [],
@@ -65,15 +67,22 @@ function Header(
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
+  const desktop = 50;
+  const mobile = 200;
   return (
     <header class={`relative h-[${headerHeight}]`}>
-      <div class="bg-black fixed w-full z-50">
-        {alerts !== undefined
-          ? <BannerWide width={1100} height={50} image={alerts} />
+      <div class=" bg-black fixed w-full z-50 ">
+        {alertsDesktop !== undefined
+          ? <BannerWide width={1100} height={50} image={alertsDesktop} />
           : <div></div>}
         <Navbar items={navItems} searchbar={searchbar} />
       </div>
-
+      <div class="block bg-black fixed w-full z-50 md:hidden">
+        {alertsMobile !== undefined
+          ? <BannerWide width={1100} height={200} image={alertsMobile} />
+          : <div></div>}
+        <Navbar items={navItems} searchbar={searchbar} />
+      </div>
       <Modals
         menu={{ items: navItems }}
         searchbar={searchbar}
