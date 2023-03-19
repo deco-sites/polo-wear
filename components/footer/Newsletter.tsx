@@ -2,7 +2,7 @@ import Text from "$store/components/ui/Text.tsx";
 
 function Newsletter() {
   return (
-    <div class="flex flex-col items-center gap-6 sm:gap-20 p-4 sm:border border-gray-500 sm:flex-row sm:justify-center">
+    <div class="flex flex-col items-center mt-[30px] gap-6 sm:gap-20 p-4 sm:border border-gray-500 sm:flex-row sm:justify-center">
       <div class="flex flex-col gap-2 max-w-[400px] text-center">
         <Text variant="heading-2" tone="default-inverse">
           QUER RECEBER AS NOSSAS NOVIDADES E PROMOÇÕES EXCLUSIVAS?

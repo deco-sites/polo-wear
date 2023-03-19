@@ -37,7 +37,7 @@ function PriceRangeCard({ image, text, price }: ProductRangeItem) {
 
 function PriceRange({ title, itens = [], text }: Props) {
   return (
-    <Container class="flex flex-col gap-10 mt-10 items-center">
+    <Container class="flex flex-col gap-10 mt-10 mb-[60px] items-center">
       <h2 class="uppercase font-medium text-[28px] sm:text-[36px]">
         {title} <span class="font-bold">{text}</span>
       </h2>
