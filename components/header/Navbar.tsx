@@ -41,7 +41,7 @@ function Navbar({ items }: {
       {/* Desktop Version */}
       <div class="hidden md:flex flex-row justify-between items-center w-full pl-2 pr-3">
         <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
+          <a href="/" aria-label="Store logo" class="block px-4 py-2 w-[160px]">
             <Image
               src="https://polowearhomolog.vteximg.com.br/arquivos/logo_polowear_white.png?v=637687032701630000"
               id="Logo"

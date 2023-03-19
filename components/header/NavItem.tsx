@@ -22,8 +22,8 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class={`fixed invisible hover:visible group-hover:visible bg-black bg-opacity-90 z-50 flex items-start justify-center gap-x-6 w-full mt-[${headerHeight}]`}
-            style={{ top: "80px", left: "0px" }}
+            class={`fixed   invisible hover:visible group-hover:visible bg-black bg-opacity-90 z-50 flex items-start justify-center gap-x-6 w-full mt-[${headerHeight}]`}
+            style={{ top: "65px", left: "0px" }}
           >
             <ul class="flex items-start flex-col h-[400px] p-6 pb-40 flex-wrap w-full justify-center gap-x-6">
               {children.map((node) => (
