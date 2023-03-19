@@ -1130,6 +1130,13 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Title",
           },
+          "text": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Texto em destaque",
+          },
           "products": {
             "$id": "1f15a836acd2ecbefef6eaf34ebcff98e39811f3",
             "format": "live-function",
@@ -1142,6 +1149,13 @@ const manifest: DecoManifest = {
               "null",
             ],
             "title": "Items Per Page",
+          },
+          "alternativeButton": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Alternative Button",
           },
         },
         "required": [
