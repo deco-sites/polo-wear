@@ -10,13 +10,20 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   title: string;
+  /**
+   * @title Texto em destaque
+   */
+  text?: string;
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
+  alternativeButton?: boolean;
 }
 
 function ProductShelf({
   title,
+  text,
   products,
+  alternativeButton = false,
 }: Props) {
   const id = useId();
 
@@ -29,8 +36,8 @@ function ProductShelf({
       id={id}
       class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
     >
-      <h2 class="text-center row-start-1 col-span-full font-medium text-[22px] md:text-[24px]">
-        {title}
+      <h2 class="text-center uppercase row-start-1 col-span-full font-medium text-[22px] md:text-[24px]">
+        {title} <span class="font-bold">{text}</span>
       </h2>
 
       <Slider
@@ -39,7 +46,10 @@ function ProductShelf({
       >
         {products?.map((product) => (
           <div class="min-w-[158px]">
-            <ProductCard product={product} />
+            <ProductCard
+              product={product}
+              alternateButton={alternativeButton}
+            />
           </div>
         ))}
       </Slider>
