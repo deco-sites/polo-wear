@@ -33,12 +33,20 @@ function Gallery({ page }: { page: ProductListingPage }) {
             <option value="Selecione" class="text-gray-800">Selecione</option>
             <option value="Selecione" class="text-gray-800">Menor Preço</option>
             <option value="Selecione" class="text-gray-800">Maior Preço</option>
-            <option value="Selecione" class="text-gray-800">Mais vendidos</option>
-            <option value="Selecione" class="text-gray-800">Melhores avaliações</option>
+            <option value="Selecione" class="text-gray-800">
+              Mais vendidos
+            </option>
+            <option value="Selecione" class="text-gray-800">
+              Melhores avaliações
+            </option>
             <option value="Selecione" class="text-gray-800">A - Z</option>
             <option value="Selecione" class="text-gray-800">Z - A</option>
-            <option value="Selecione" class="text-gray-800">Data de lançamento</option>
-            <option value="Selecione" class="text-gray-800">Melhor Desconto</option>
+            <option value="Selecione" class="text-gray-800">
+              Data de lançamento
+            </option>
+            <option value="Selecione" class="text-gray-800">
+              Melhor Desconto
+            </option>
           </select>
         </div>
         <div class=" relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
