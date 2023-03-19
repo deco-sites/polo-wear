@@ -65,6 +65,7 @@ const options: Omit<Options, "selfURL"> = {
         "positive": "#1A7346",
         "critical": "#B44125",
         "divider": "#ffffff33",
+        "price-box": "#EAEAEA",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
