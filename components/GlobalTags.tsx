@@ -8,20 +8,9 @@ function GlobalTags() {
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={asset("/favicon-32x32.png")}
+        href={"https://polowearhomolog.vteximg.com.br/arquivos/polowear-favicon.ico?v=637533932527230000"}
       />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={asset("/favicon-16x16.png")}
-      />
-      <link
-        rel="shortcut icon"
-        type="image/x-icon"
-        href={asset("/favicon-32x32.png")}
-      />
-
+      <title>Polo Wear</title>
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
       <meta name="theme-color" content="#221E1F" />
