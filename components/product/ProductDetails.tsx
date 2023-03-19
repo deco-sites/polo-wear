@@ -78,7 +78,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
                         ? currentImage.value = 1
                         : currentImage.value = 0}
                   >
-                    <Image src={image.url!} width={50} height={60} />
+                    <Image src={image.url!} width={50} height={60} alt="Product details" />
                   </button>
                 ))}
               </div>

@@ -28,6 +28,7 @@ function Navbar({ items }: {
             id="Logo"
             width={210}
             height={41.86}
+            alt="Logo"
           />
         </a>
 
@@ -47,6 +48,7 @@ function Navbar({ items }: {
               id="Logo"
               width={210}
               height={41.86}
+              alt="logo"
             />
           </a>
         </div>
