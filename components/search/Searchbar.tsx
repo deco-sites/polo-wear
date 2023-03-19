@@ -108,7 +108,11 @@ function Searchbar({
 
   return (
     <div class="flex flex-grow items-stretch">
-      <div class="h-full text-xs w-[30%] pt-2 bg-gray-bg"><p class="text-center font-bold">{searchInputRef.current?.value ? "Sugestões" : "Mais Procurados"}</p></div>
+      <div class="h-full text-xs w-[30%] pt-2 bg-gray-bg">
+        <p class="text-center font-bold">
+          {searchInputRef.current?.value ? "Sugestões" : "Mais Procurados"}
+        </p>
+      </div>
       <div class="flex max-w-[70%] flex-col p-4">
         <div class="flex  items-center">
           <form
@@ -192,23 +196,23 @@ function Searchbar({
           )}
           {_products && !emptySuggestions && (
             <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden scrollbar-none">
-              <Text class="px-4 text-black !font-bold" >RECOMENDAMOS</Text>
-                {_products.map((
-                  product,
-                  index,
-                ) => (
-                  <div
-                    class={`${
-                      index === 0
-                        ? "ml-4"
-                        : index === _products.length - 1
-                        ? "mr-4"
-                        : ""
-                    } min-w-[200px] max-w-[200px] text-black flex flex-col scrollbar-none`}
-                  >
-                    <ProductCard product={product} />
-                  </div>
-                ))}
+              <Text class="px-4 text-black !font-bold">RECOMENDAMOS</Text>
+              {_products.map((
+                product,
+                index,
+              ) => (
+                <div
+                  class={`${
+                    index === 0
+                      ? "ml-4"
+                      : index === _products.length - 1
+                      ? "mr-4"
+                      : ""
+                  } min-w-[200px] max-w-[200px] text-black flex flex-col scrollbar-none`}
+                >
+                  <ProductCard product={product} />
+                </div>
+              ))}
             </div>
           )}
         </div>
