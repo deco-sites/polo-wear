@@ -20,7 +20,7 @@ function NotFound() {
 
 function Gallery({ page }: { page: ProductListingPage }) {
   return (
-    <div class="px-8 sm:py-10 mt-24 w-screen flex ">
+    <div class="px-8 sm:py-10 mt-4 w-screen flex ">
       <div class="hidden w-1/4 px-4 md:block">
         <Filter />
       </div>

@@ -125,10 +125,10 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 <ProductSelector product={product} />
               </div>
               <div class="flex flex-col gap-4 lg:flex-row">
-                <Button class="bg-transparent border !border-light-border rounded-none !font-light text-[14px]">
+                <Button class="bg-transparent border text-black !border-light-border rounded-none !font-light text-[14px]">
                   Descubre seu Tamanho
                 </Button>
-                <Button class="bg-transparent border !border-light-border rounded-none !font-light text-[14px]">
+                <Button class="bg-transparent border text-black !border-light-border rounded-none !font-light text-[14px]">
                   Tabela de medidas
                 </Button>
               </div>

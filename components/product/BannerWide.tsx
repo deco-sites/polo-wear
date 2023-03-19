@@ -12,7 +12,7 @@ function BannerWide({ image, text, width = 1100, height = 50 }: Props) {
   return (
     <div class="relative">
       <Image src={image} width={width} height={height} class="w-full" />
-      <p class="absolute top-[50%] left-8 text-[32px] text-white uppercase font-bold">
+      <p class="absolute top-[50%]  left-8 text-[32px] text-white uppercase font-bold">
         {text}
       </p>
     </div>

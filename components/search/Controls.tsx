@@ -27,39 +27,15 @@ function Controls({ page }: { page: ProductListingPage }) {
       <div class="flex flex-row items-center sm:p-0 mb-2">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
-        <Button
-          variant="tertiary"
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-        </Button>
-        <Sort />
-      </div>
-
-      <Modal
-        title="Filtrar"
-        mode="sidebar-right"
-        open={open.value}
-        onClose={() => {
-          open.value = false;
-        }}
-      >
-        <Filters filters={filters} />
-      </Modal>
     </Container>
   );
 }
 
 function SearchControls({ page }: Props) {
-  if (!page || !page.filters || page.filters.length === 0) {
-    return <NotFound />;
+  if (page !== null) {
+    return <Controls page={page} />;
   }
-
-  return <Controls page={page} />;
+  return <div></div>
 }
 
 export default SearchControls;
