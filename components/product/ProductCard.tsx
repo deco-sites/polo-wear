@@ -1,7 +1,5 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Text from "$store/components/ui/Text.tsx";
 import Avatar from "$store/components/ui/Avatar.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
@@ -49,66 +47,48 @@ function ProductCard({ product, preload }: Props) {
     offers,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller } = useOffer(offers);
+  const { price } = useOffer(offers);
 
   return (
     <div
       id={`product-card-${productID}`}
-      class="w-full group"
+      class="w-full group mt-6"
     >
       <a href={url} aria-label="product link">
-        <div class="relative w-full">
-          <Image
-            src={front.url!}
-            alt={front.alternateName}
-            width={200}
-            height={279}
-            class="rounded w-full group-hover:hidden"
-            preload={preload}
-            loading={preload ? "eager" : "lazy"}
-            sizes="(max-width: 640px) 50vw, 20vw"
-          />
-          <Image
-            src={back?.url ?? front.url!}
-            alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
-            class="rounded w-full hidden group-hover:block"
-            sizes="(max-width: 640px) 50vw, 20vw"
-          />
-          {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
-            </div>
-          )}
-        </div>
-
-        <div class="flex flex-col gap-1 py-2">
-          <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
-            variant="caption"
-          >
-            {name}
-          </Text>
-          <div class="flex items-center gap-2">
-            <Text
-              class="line-through"
-              variant="list-price"
-              tone="subdued"
-            >
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
-            <Text variant="caption" tone="price">
-              {formatPrice(price, offers!.priceCurrency!)}
-            </Text>
+        <div class="flex flex-col md:min-w-[230px]">
+          <div class="hidden absolute bg-[#991113] p-1 ml-4 rounded-br-[20px]">
+            <span class="font-black	text-base text-white mx-1.5">
+              25%
+            </span>
           </div>
+
+          <div class="flex items-end relative">
+            <div class="w-full text-center transition-all ease-in-out duration-1000 group-hover:opacity-100 opacity-0 absolute hover:bg-blue-400 bg-green-600 p-4 text-white translate-y-60 group-hover:translate-y-0">
+              Comprar agora
+            </div>
+            <Image
+              src={front.url!}
+              alt={front.alternateName}
+              width={158}
+              height={200}
+              class="rounded w-full group-hover:hidden"
+              preload={preload}
+              loading={preload ? "eager" : "lazy"}
+              sizes="(max-width: 640px) 50vw, 20vw"
+            />
+            <Image
+              src={back?.url ?? front.url!}
+              alt={back?.alternateName ?? front.alternateName}
+              width={158}
+              height={200}
+              class="rounded w-full hidden group-hover:block"
+              sizes="(max-width: 640px) 50vw, 20vw"
+            />
+          </div>
+          <p class="text-center text-[13px]">{name}</p>
+          <p class="font-bold text-center">
+            {formatPrice(price, offers!.priceCurrency!)}
+          </p>
         </div>
       </a>
     </div>
