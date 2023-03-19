@@ -24,7 +24,7 @@ function Item({ name, item }: { name?: string; item?: string }) {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   return (
-    <ul class="flex flex-row pl-4 gap-2 items-center w-full sm:mt-14">
+    <ul class="flex flex-row pl-4 gap-2 items-center w-full  sm:mt-14">
       <Item name="Home" item="/" />
       {itemListElement.map((item) => (
         <>
