@@ -4,10 +4,13 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
+import { LiveImage } from "../../sections/Highlights.tsx";
+
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
+import BannerWide from "../product/BannerWide.tsx";
 
 export interface NavItem {
   label: string;
@@ -27,7 +30,7 @@ export interface NavItem {
 }
 
 export interface Props {
-  alerts: string[];
+  alerts?: LiveImage;
   /** @title Search Bar */
   searchbar?: SearchbarProps;
   /**
@@ -67,7 +70,7 @@ function Header(
   return (
     <header class={`relative h-[${headerHeight}]`}>
       <div class="bg-black fixed w-full z-50">
-        <Alert alerts={alerts} />
+        {alerts !== undefined ? <BannerWide width={1100} height={50} image={alerts} /> : <div></div>}
         <Navbar items={navItems} searchbar={searchbar} />
       </div>
 
