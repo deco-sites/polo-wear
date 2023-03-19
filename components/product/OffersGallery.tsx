@@ -20,6 +20,7 @@ function OffersGallery({
             src={image}
             width={200}
             height={200}
+            alt="Offer galery"
           />
         ))}
       </div>

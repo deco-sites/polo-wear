@@ -22,7 +22,7 @@ function PriceRangeCard({ image, text, price }: ProductRangeItem) {
 
   return (
     <a class="group" href="#">
-      <Image src={image} width={480} height={480} />
+      <Image src={image} width={480} height={480} alt="price range" />
       <p class="text-xl sm:text-2xl transition-all group-hover:cursor-pointer duration-200 group-hover:bg-black group-hover:text-white mt-1 text-center font-bold py-[49px] border border-price-box">
         {text} R${" "}
         <span class="text-[40px] sm:text-[60px] font-medium">
