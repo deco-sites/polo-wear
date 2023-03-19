@@ -65,10 +65,10 @@ function ProductCard({ product, preload, alternateButton = false }: Props) {
 
           <div class="flex items-end relative">
             <div
-              class={`w-full text-center transition-all ease-in-out duration-1000 group-hover:opacity-100 opacity-0 absolute hover:!opacity-70 bg-green-600 p-4 text-white translate-y-60 group-hover:translate-y-0 ${
+              class={`w-full  text-center transition-all ease-in-out duration-1000 group-hover:opacity-100 opacity-0 absolute hover:!opacity-70 bg-green-600 p-4 text-white translate-y-60 group-hover:translate-y-0 ${
                 alternateButton
                   ? "!bg-black !-translate-y-28 group-hover:!-translate-y-12 !p-3"
-                  : ""
+                  : "!bg-dk-green-button"
               }`}
             >
               Comprar agora

@@ -12,6 +12,7 @@ const displayUserModal = signal(false);
 const gender = signal("Masculino");
 const currentImage = signal(0);
 const opacity = signal(false);
+const detailsToggle = signal("Descrição")
 
 const state = {
   displayCart,
@@ -21,6 +22,7 @@ const state = {
   gender,
   currentImage,
   opacity,
+  detailsToggle
 };
 
 export const useUI = () => state;
