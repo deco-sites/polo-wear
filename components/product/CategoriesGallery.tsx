@@ -42,7 +42,7 @@ function CategorieItem({ image, alt, title, href, imageType }: CategoryItem) {
 
 function CategoriesGallery({ categories }: Props) {
   return (
-    <Container class="flex flex-col gap-5 items-center sm:(flex-row items-stretch flex-wrap) ">
+    <Container class="flex flex-col gap-5 items-center lg:(flex-row items-stretch flex-wrap) ">
       {categories.map((categorie) => (
         <CategorieItem
           imageType={categorie.imageType}
