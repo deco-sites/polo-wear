@@ -35,7 +35,7 @@ function SearchControls({ page }: Props) {
   if (page !== null) {
     return <Controls page={page} />;
   }
-  return <div></div>
+  return <div></div>;
 }
 
 export default SearchControls;
