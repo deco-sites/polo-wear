@@ -774,10 +774,15 @@ const manifest: DecoManifest = {
         "title": " Header",
         "type": "object",
         "properties": {
-          "alerts": {
+          "alertsDesktop": {
             "format": "image-uri",
             "type": "string",
-            "title": "Alerts",
+            "title": "Alerts Desktop",
+          },
+          "alertsMobile": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Alerts Mobile",
           },
           "searchbar": {
             "title": "Search Bar",
